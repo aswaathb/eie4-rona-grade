@@ -24,7 +24,7 @@ print("IMPORTANT: This calculator assumes that for all pre-rona modules, 100% of
 print("How many 4th yr modules count as pre-rona?")
 num_pre_rona = int(input())
 
-reduced_yrw_four = num_pre_rona * (YR_FOUR_MOD/YR_FOUR_NMOD) * YRW_FOUR
+#reduced_yrw_four = num_pre_rona * (YR_FOUR_MOD/YR_FOUR_NMOD) * YRW_FOUR
 
 pre_rona_grades = []
 for i in range(1,num_pre_rona+1):
@@ -39,8 +39,8 @@ guaranteed_deg_grade = 0
 guaranteed_deg_grade += YRW_ONE   * year_grades[0]
 guaranteed_deg_grade += YRW_TWO   * year_grades[1]
 guaranteed_deg_grade += YRW_THREE * year_grades[2]
-guaranteed_deg_grade += reduced_yrw_four * avg_pre_rona_grades
-# divide with new weighting
-guaranteed_deg_grade /= (YRW_ONE+YRW_TWO+YRW_THREE+reduced_yrw_four)
+guaranteed_deg_grade += YRW_FOUR  * avg_pre_rona_grades
+# update from KF - 4th yr weighting to stay the same
+guaranteed_deg_grade /= (YRW_ONE+YRW_TWO+YRW_THREE+YRW_FOUR)
 
 print("Your guaranteed degree grade is: {}".format(guaranteed_deg_grade))
